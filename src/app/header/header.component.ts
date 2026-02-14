@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-
+import {DUMMY_USERS} from '../dummy-users';
 
 @Component ({
   selector: "app-header",
@@ -7,4 +7,5 @@ import {Component} from '@angular/core';
   standalone: true,
   styleUrls: ["./header.component.scss"],
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+}

@@ -1,1 +1,13 @@
-<p>user works!</p>
+<div>
+  <button (click)="onClick()" >
+    <img [src]="imagePath"
+         [alt]="user.name"/>
+    <span>{{ user.name }}</span>
+  </button>
+<!--  @if (open) {-->
+<!--    <div class="red">-->
+<!--      {{user.name}}-->
+<!--      <button  (click)="onClick()">close</button>-->
+<!--    </div>-->
+<!--  }-->
+</div>
