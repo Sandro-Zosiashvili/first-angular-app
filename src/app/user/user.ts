@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, computed, Input, signal} from '@angular/core';
 import {DUMMY_USERS} from '../dummy-users';
+import {required} from '@angular/forms/signals';
 
-const randomUsers = Math.floor(Math.random() * DUMMY_USERS.length);
 
 @Component({
   selector: 'app-user',
@@ -11,16 +11,15 @@ const randomUsers = Math.floor(Math.random() * DUMMY_USERS.length);
   standalone: true
 })
 export class User {
-  user = DUMMY_USERS[randomUsers]
+  @Input({required: true}) avatar!: string;
+  @Input({required: true}) name!: string;
 
   get imagePath() {
-    return  "assets/images/" + this.user.avatar;
+    return `/assets/images/${this.avatar}`;
   }
 
 
   onClick() {
-    const randomUsers = Math.floor(Math.random() * DUMMY_USERS.length);
-    this.user = DUMMY_USERS[randomUsers]
 
   }
 
