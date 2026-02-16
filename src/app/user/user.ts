@@ -1,6 +1,5 @@
-import {Component, computed, Input, signal} from '@angular/core';
-import {DUMMY_USERS} from '../dummy-users';
-import {required} from '@angular/forms/signals';
+import {Component, Input, input} from '@angular/core';
+
 
 
 @Component({
@@ -11,8 +10,11 @@ import {required} from '@angular/forms/signals';
   standalone: true
 })
 export class User {
-  @Input({required: true}) avatar!: string;
-  @Input({required: true}) name!: string;
+  // @Input({required: true}) avatar!: string;
+  // @Input({required: true}) name!: string;
+  avatar = input<string>();
+  name = input<string>();
+
 
   get imagePath() {
     return `/assets/images/${this.avatar}`;
