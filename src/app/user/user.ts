@@ -1,4 +1,4 @@
-import {Component, Input, input} from '@angular/core';
+import {Component, computed, EventEmitter, Input, input, Output} from '@angular/core';
 
 
 
@@ -10,19 +10,21 @@ import {Component, Input, input} from '@angular/core';
   standalone: true
 })
 export class User {
-  // @Input({required: true}) avatar!: string;
-  // @Input({required: true}) name!: string;
-  avatar = input<string>();
-  name = input<string>();
+  @Input({required: true}) avatar!: string;
+  @Input({required: true}) name!: string;
+  @Input({required: true}) id!: string;
+  @Output() select = new EventEmitter();
+  @Output() delete = new EventEmitter();
 
 
   get imagePath() {
-    return `/assets/images/${this.avatar}`;
+    return `assets/images/${this.avatar}`;
   }
 
 
   onClick() {
-
+    this.select.emit({id: this.id, name: this.name});
+    this.delete.emit(this.id);
   }
 
   protected readonly onsubmit = onsubmit;

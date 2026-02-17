@@ -11,7 +11,15 @@ import {DUMMY_USERS} from './dummy-users';
   styleUrl: './app.scss'
 })
 export class App {
-
   users = DUMMY_USERS;
+
+  selectUser(user: { id: string, name: string }) {
+    console.log("Selected user is: " + user.id)
+    console.log("Selected user is: " + user.name)
+  }
+
+  deleteUser(id: string) {
+    console.log("Deleted user is: " + id)
+  }
   protected readonly title = signal('Sandro');
 }
