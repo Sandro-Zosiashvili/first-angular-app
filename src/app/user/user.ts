@@ -14,7 +14,6 @@ export class User {
   @Input({required: true}) name!: string;
   @Input({required: true}) id!: string;
   @Output() select = new EventEmitter();
-  @Output() delete = new EventEmitter();
 
 
   get imagePath() {
@@ -23,8 +22,7 @@ export class User {
 
 
   onClick() {
-    this.select.emit({id: this.id, name: this.name});
-    this.delete.emit(this.id);
+    this.select.emit(this.id);
   }
 
   protected readonly onsubmit = onsubmit;
