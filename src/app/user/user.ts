@@ -1,4 +1,5 @@
 import {Component, computed, EventEmitter, Input, input, Output} from '@angular/core';
+import {required} from '@angular/forms/signals';
 
 
 
@@ -10,19 +11,21 @@ import {Component, computed, EventEmitter, Input, input, Output} from '@angular/
   standalone: true
 })
 export class User {
-  @Input({required: true}) avatar!: string;
-  @Input({required: true}) name!: string;
-  @Input({required: true}) id!: string;
+  @Input({required: true}) users!: {
+    id: string,
+    name: string,
+    avatar: string
+  };
   @Output() select = new EventEmitter();
 
 
   get imagePath() {
-    return `assets/images/${this.avatar}`;
+    return `assets/images/${this.users.avatar}`;
   }
 
 
   onClick() {
-    this.select.emit(this.id);
+    this.select.emit(this.users.id);
   }
 
   protected readonly onsubmit = onsubmit;
