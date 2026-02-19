@@ -1,6 +1,5 @@
-import {Component, computed, EventEmitter, Input, input, Output} from '@angular/core';
-import {required} from '@angular/forms/signals';
-
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {UserType} from './user.model';
 
 
 @Component({
@@ -11,11 +10,7 @@ import {required} from '@angular/forms/signals';
   standalone: true
 })
 export class User {
-  @Input({required: true}) users!: {
-    id: string,
-    name: string,
-    avatar: string
-  };
+  @Input({required: true}) users!: UserType;
   @Output() select = new EventEmitter();
 
 

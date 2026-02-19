@@ -1,3 +1,18 @@
-<h2>{{name}}</h2>
-<h3>{{tasks}}</h3>
+<section id="tasks">
+  <header>
+    <h2>{{ name }}'s Tasks</h2>
+    <menu>
+      <Button>Add Task</Button>
+    </menu>
+  </header>
 
+    @if (tasks) {
+      <ul>
+        @for (task of filterTasks; track task.id) {
+          <li>
+            <app-task [tasks]="task"/>
+          </li>
+        }
+      </ul>
+    }
+</section>
