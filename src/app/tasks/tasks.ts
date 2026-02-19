@@ -14,7 +14,34 @@ import {Task} from '../task/task';
 export class Tasks {
   @Input() name?: string;
   @Input({required: true}) userId!: string;
+  @Input({required: true}) value!: string;
   tasks = Dummy_Tasks;
+
+  onCLickTask = signal(false);
+
+  openTaskAdder() {
+    this.onCLickTask.set(!this.onCLickTask())
+
+  }
+  onInput(e: Event) {
+     this.value  = (e.target as HTMLInputElement).value;
+    console.log(this.value);
+  }
+  addTask(input: HTMLInputElement) {
+    this.tasks.push({
+      id: Date.now().toString(),
+      userId: this.userId,
+      title: 'New Task',
+      summary: this.value,
+      dueDate: '2021-01-01'
+    })
+    this.value = '';
+    input.value = '';
+  }
+  //
+  // get title() {
+  //   return ;
+  // }
 
 
   get filterTasks() {

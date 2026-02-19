@@ -11,6 +11,7 @@ import {UserType} from './user.model';
 })
 export class User {
   @Input({required: true}) users!: UserType;
+  @Input({required: true}) selected?: boolean;
   @Output() select = new EventEmitter();
 
 

@@ -16,13 +16,13 @@ import {Dummy_Tasks} from './Dummy_Tasks';
 })
 export class App {
   users = DUMMY_USERS;
-  userID?: string;
+  userId?: string;
   get selectedUser() {
-    return this.users.find(u => u.id === this.userID);
+    return this.users.find(u => u.id === this.userId);
   }
 
   selectUser(id: string) {
-    this.userID = id
+    this.userId = id
   }
 
   protected readonly title = signal('Sandro');
